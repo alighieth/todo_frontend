@@ -72,7 +72,7 @@ var br = document.createElement("br");
 
 const form = document.createElement("form")
 form.setAttribute("method", "POST")
-form.setAttribute("action", "http://localhost:9292/todo") 
+form.setAttribute("action", "http://localhost:9292/todo")
 
 const titleInput = document.createElement("input")
 titleInput.setAttribute("type", "text")
@@ -100,10 +100,9 @@ application_root.appendChild(br.cloneNode())
 application_root.appendChild(br.cloneNode())
 application_root.appendChild(submit)
 
-
-//call method trial 
-
-// add el data in div
-// button post create 
+const Note = {
+    title: titleInput.value,
+    note: noteInput.value,
+}
 
 
