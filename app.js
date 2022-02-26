@@ -71,8 +71,7 @@ application_root.appendChild(line)
 var br = document.createElement("br");
 
 const form = document.createElement("form")
-form.setAttribute("method", "POST")
-form.setAttribute("action", "http://localhost:9292/todo")
+// form.setAttribute("onsubmit", "return submittion(this)")
 
 const titleInput = document.createElement("input")
 titleInput.setAttribute("type", "text")
@@ -87,22 +86,32 @@ noteInput.setAttribute("placeholder", "Note")
 
 //submit button
 const submit = document.createElement("input")
-submit.setAttribute("type", "submit")
 submit.setAttribute("name", "Submit")
+submit.setAttribute("type", "Submit")
+submit.setAttribute("onclick", "return submittion()")
 
+form.appendChild(br.cloneNode())
+form.appendChild(titleInput)
+form.appendChild(br.cloneNode())
+form.appendChild(noteInput)
+form.appendChild(br.cloneNode())
+form.appendChild(submit)
 
-application_root.appendChild(br.cloneNode())
-application_root.appendChild(titleInput)
-application_root.appendChild(br.cloneNode())
-application_root.appendChild(br.cloneNode())
-application_root.appendChild(noteInput)
-application_root.appendChild(br.cloneNode())
-application_root.appendChild(br.cloneNode())
-application_root.appendChild(submit)
+application_root.appendChild(form)
 
-const Note = {
-    title: titleInput.value,
-    note: noteInput.value,
+let titleIn = titleInput.value
+let noteIn = noteInput.value
+
+function submittion() {
+    fetch("http://localhost:9292/todo", {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({title: titleInput.value.toString, note: noteInput.value.toString}),
+})
+    .then(response => response.json())
+    .then(Note => console.log("note added successfully"))
 }
 
 
