@@ -1,0 +1,16 @@
+h1{
+    color: red;
+    font-size: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}
+#application{
+    font-family: 'Times New Roman', Times, serif;
+    color: purple;
+    text-align: center;
+}
+#myTable, th, td{
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    border: solid 5px purple;
+
+}
